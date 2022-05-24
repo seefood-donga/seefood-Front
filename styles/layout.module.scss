@@ -46,7 +46,6 @@
   align-items: center;
   span{
     text-align: center;
-    color : #dadada;
     font-size: 12px;
   }
 }
@@ -75,3 +74,10 @@
   cursor: pointer;
 }
 
+.active{
+  color : darkseagreen;
+  font-weight: bold;
+}
+.non-active{
+  color : #dadada;
+}

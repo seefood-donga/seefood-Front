@@ -5,32 +5,36 @@ import ProfileIcon from "public/icons/profile.svg";
 import LikeIcon from "public/icons/heart.svg";
 import FlagIcon from "public/icons/flag.svg";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 const NavBar = () => {
+
+  const router = useRouter();
+
   const NavItem = useMemo(
     () => [
       {
         path: "/",
-        icon: <HomeIcon />,
+        icon: <HomeIcon fill={router.pathname === "/" ? "darkseagreen":"#dadada"} />,
         title: "HOME",
       },
       {
         path: "/challenge",
-        icon: <FlagIcon />,
+        icon: <FlagIcon fill={router.pathname === "/challenge" ? "darkseagreen":"#dadada"} />,
         title: "MAIN",
       },
       {
-        path: "like",
-        icon: <LikeIcon />,
+        path: "/like",
+        icon: <LikeIcon fill={router.pathname === "/like" ? "darkseagreen":"#dadada"} />,
         title: "LIKE",
       },
       {
         path: "/profile",
-        icon: <ProfileIcon />,
+        icon: <ProfileIcon fill={router.pathname === "/profile" ? "darkseagreen":"#dadada"} />,
         title: "MY",
       },
     ],
-    []
+    [router]
   );
 
   return (
@@ -40,7 +44,7 @@ const NavBar = () => {
           <Link key={i} href={v.path}>
             <div className={styles["nav-item"]}>
               <li>{v.icon}</li>
-              <span>{v.title}</span>
+              <span className={router.pathname === v.path ? styles.active : styles["non-active"]}>{v.title}</span>
             </div>
           </Link>
         ))}
