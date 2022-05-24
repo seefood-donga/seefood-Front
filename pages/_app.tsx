@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const noNav = Component.noNav;
 
   return (
-    <AppLayout {...{layoutHeader, noNav}}>
+    <AppLayout {...{layoutHeader, noNav, hasBack}}>
       <Component {...pageProps} />
     </AppLayout>
   );

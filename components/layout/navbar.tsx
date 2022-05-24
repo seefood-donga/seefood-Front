@@ -15,22 +15,22 @@ const NavBar = () => {
     () => [
       {
         path: "/",
-        icon: <HomeIcon fill={router.pathname === "/" ? "darkseagreen":"#dadada"} />,
+        icon: <HomeIcon fill={router.pathname === "/" ? "#00ac77":"#dadada"} />,
         title: "HOME",
       },
       {
         path: "/challenge",
-        icon: <FlagIcon fill={router.pathname === "/challenge" ? "darkseagreen":"#dadada"} />,
+        icon: <FlagIcon fill={router.pathname === "/challenge" ? "#00ac77":"#dadada"} />,
         title: "MAIN",
       },
       {
         path: "/like",
-        icon: <LikeIcon fill={router.pathname === "/like" ? "darkseagreen":"#dadada"} />,
+        icon: <LikeIcon fill={router.pathname === "/like" ? "#00ac77":"#dadada"} />,
         title: "LIKE",
       },
       {
         path: "/profile",
-        icon: <ProfileIcon fill={router.pathname === "/profile" ? "darkseagreen":"#dadada"} />,
+        icon: <ProfileIcon fill={router.pathname === "/profile" ? "#00ac77":"#dadada"} />,
         title: "MY",
       },
     ],

@@ -1,6 +1,6 @@
 import { NextPageWithLayout } from 'types/common'
 
-const MyApp: NextPageWithLayout = () => {
+const MainPage: NextPageWithLayout = () => {
   return (
     <div>
       메인 페이지
@@ -8,6 +8,9 @@ const MyApp: NextPageWithLayout = () => {
   )
 }
 
-MyApp.header = true;
+MainPage.header = true;
+MainPage.back = false;
 
-export default MyApp
+
+
+export default MainPage
