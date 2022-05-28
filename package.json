@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
+    "@types/gravatar": "^1.8.3",
     "axios": "^0.26.1",
     "dayjs": "^1.11.2",
+    "gravatar": "^1.8.2",
     "next": "12.1.6",
     "next-redux-wrapper": "^7.0.5",
     "next-seo": "^5.4.0",
