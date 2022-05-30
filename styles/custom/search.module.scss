@@ -1,0 +1,38 @@
+.wrapper {
+  position: fixed;
+  display: flex;
+  padding :8px 0px;
+  z-index: 10;
+  width: 100%;
+  padding-right: 16px;
+  background-color: rgb(250, 250, 250);
+}
+.button {
+  position :absolute;
+  background: none;
+  padding: 11px 8px 11px 11px;
+}
+
+.input{
+  position: relative;
+  border:none;
+  border-radius: 8px;
+  width: 100%;
+  height: 42px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding-left: 39px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.input:focus {
+  outline: none;
+  border:2px solid var(--primary);
+}
+.input:focus::placeholder {
+  opacity: 0;
+}
+.input::placeholder {
+  font-size: 14px;
+  font-weight: bold;
+}

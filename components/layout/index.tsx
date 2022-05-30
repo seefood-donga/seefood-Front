@@ -18,7 +18,7 @@ const AppLayout = ({children, layoutHeader, noNav, hasBack = true}: Props) =>{
       {layoutHeader && <Header {...layoutHeader}/>}
       {hasBack && <BackButton />}
     <main  style={{
-            paddingTop: layoutHeader && "68px",
+            paddingTop: layoutHeader && "60px",
             paddingBottom: !noNav ? "68px" : "0",
             height: "100%"
           }}>
