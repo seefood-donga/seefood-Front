@@ -15,16 +15,24 @@ export const postList: Post[] = [
       {
         cal:300,
         position:{
-          x:0, y:0
+          x:90, y:50
         }
       },
       {
-        cal:800,
+        cal:500,
         position:{
-          x:0, y:0
+          x:150, y:150
+        }
+      },
+      {
+        cal:500,
+        position:{
+          x:220, y:60
         }
       },
     ],
-    likers: []
-  },  
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt:"3일전"
+  }, 
 ]
