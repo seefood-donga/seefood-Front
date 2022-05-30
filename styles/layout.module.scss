@@ -20,6 +20,9 @@
   position: fixed;
   z-index: 1000; 
   background: white;
+  h2 {
+    font-size: 14px;
+  }
 }
 
 .nav {
@@ -46,7 +49,6 @@
   align-items: center;
   span{
     text-align: center;
-    color : #dadada;
     font-size: 12px;
   }
 }
@@ -55,7 +57,7 @@
   position: absolute;
   right: 10px;
   button {
-    background-color: darkseagreen;
+    background-color: var(--primary);
     color: white;
     border-radius: 4px;
     padding : 8px 12px;
@@ -75,3 +77,10 @@
   cursor: pointer;
 }
 
+.active{
+  color : var(--primary);
+  font-weight: bold;
+}
+.non-active{
+  color : #dadada;
+}

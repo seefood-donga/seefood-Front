@@ -1,13 +1,19 @@
+import SearchBar from 'components/custom/search';
+import PostList from 'components/post';
 import { NextPageWithLayout } from 'types/common'
 
-const MyApp: NextPageWithLayout = () => {
+const MainPage: NextPageWithLayout = () => {
   return (
     <div>
-      메인 페이지
+      <SearchBar />
+      <PostList />
     </div>
   )
 }
 
-MyApp.header = true;
+MainPage.header = true;
+MainPage.back = false;
 
-export default MyApp
+
+
+export default MainPage

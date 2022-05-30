@@ -9,14 +9,14 @@ interface Props {
   children:ReactNode;
   layoutHeader?: LayoutHeader;
   noNav?:boolean;
-  hasback?:boolean
+  hasBack?:boolean
 }
 
-const AppLayout = ({children, layoutHeader, noNav, hasback}: Props) =>{
+const AppLayout = ({children, layoutHeader, noNav, hasBack = true}: Props) =>{
   return (
     <div className={styles.wrapper}>
-      {layoutHeader && <Header />}
-      {!hasback && <BackButton />}
+      {layoutHeader && <Header {...layoutHeader}/>}
+      {hasBack && <BackButton />}
     <main  style={{
             paddingTop: layoutHeader && "68px",
             paddingBottom: !noNav ? "68px" : "0",

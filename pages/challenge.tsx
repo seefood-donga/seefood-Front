@@ -7,6 +7,6 @@ const ChallengePage : NextPageWithLayout = () =>{
   )
 }
 
-ChallengePage.header = {title: "Challenge"}
+ChallengePage.header = {title: "챌린지"}
 
 export default ChallengePage;
