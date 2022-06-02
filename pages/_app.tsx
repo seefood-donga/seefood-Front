@@ -1,6 +1,7 @@
 import AppLayout from "components/layout";
-import "styles/globals.scss";
 import { AppPropsWithLayout } from "types/common";
+import "public/font/style.css";
+import "styles/globals.scss";
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const layoutHeader = Component.header;
