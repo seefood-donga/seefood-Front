@@ -11,7 +11,7 @@ const Header = ({title} : LayoutHeader) => {
         title ? (
           <h2>{title}</h2>
         ):(
-          <div>로고</div>
+          <div className={styles.t1}>See Food!</div>
         )
       }
       <div className={styles.profile}>

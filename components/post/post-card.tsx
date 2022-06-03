@@ -15,7 +15,8 @@ const PostCard = ({ postData }: Props) => {
   const [isLike, setIsLike] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
-  const toggleLike = useCallback(() => {
+  const toggleLike = useCallback((e) => {
+    e.stopPropagation();
     setIsLike((prev) => !prev);
     setIsActive(true);
   }, [isLike]);

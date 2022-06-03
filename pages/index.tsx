@@ -14,6 +14,9 @@ const MainPage: NextPageWithLayout = () => {
 };
 
 MainPage.header = true;
-MainPage.back = false;
+MainPage.back = {
+  has:false,
+  color:"",
+};
 
 export default MainPage;
