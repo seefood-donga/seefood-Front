@@ -12,5 +12,9 @@ const LoginPage : NextPageWithLayout = () =>{
 }
 
 LoginPage.noNav = true;
-
+LoginPage.noPadding=true;
+LoginPage.back = {
+  has:true,
+  color:"white",
+}
 export default LoginPage;

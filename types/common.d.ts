@@ -7,8 +7,9 @@ type LayoutHeader ={
 
 type NextPageWithLayout = NextPage & {
   header?: LayoutHeader | boolean;
-  back?: boolean;
+  back?: {has:boolean, color: string};
   noNav?: boolean;
+  noPadding?:boolean;
 }
 
 type AppPropsWithLayout = AppProps & {
