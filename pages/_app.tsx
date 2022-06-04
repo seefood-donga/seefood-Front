@@ -7,9 +7,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const layoutHeader = Component.header;
   const hasBack = Component.back;
   const noNav = Component.noNav;
+  const noPadding = Component.noPadding;
 
   return (
-    <AppLayout {...{layoutHeader, noNav, hasBack}}>
+    <AppLayout {...{layoutHeader, noNav, noPadding ,hasBack}}>
       <Component {...pageProps} />
     </AppLayout>
   );

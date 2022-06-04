@@ -13,5 +13,10 @@ const SignUpPage : NextPageWithLayout = () =>{
 }
 
 SignUpPage.noNav = true;
+SignUpPage.noPadding= true;
+SignUpPage.back = {
+  has:true,
+  color:"white",
+}
 
 export default SignUpPage;
