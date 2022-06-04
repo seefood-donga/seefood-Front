@@ -1,6 +1,6 @@
-import CustomInput from 'components/custom/input';
-import useInput from 'hooks/use-input';
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import CustomInput from "components/custom/input";
+import useInput from "hooks/use-input";
+import React, { ChangeEvent, useCallback, useState } from "react";
 import styles from "styles/auth.module.scss";
 
 const SignUpForm = () => {
@@ -26,9 +26,9 @@ const SignUpForm = () => {
     [passwordChk]
   );
 
-  const onSubmit = useCallback((e)=>{
+  const onSubmit = useCallback((e) => {
     e.preventDefault();
-  },[]);
+  }, []);
   return (
     <>
       <form>
@@ -69,6 +69,18 @@ const SignUpForm = () => {
             message: errorMessage,
           }}
         />
+        <div className={styles.user}>
+          <CustomInput
+            inputType="text"
+            placeHolderMessage="키 입력"
+          />
+          <span>cm</span>
+          <CustomInput
+            inputType="text"
+            placeHolderMessage="몸무게 입력"
+          />
+          <span>kg</span>
+        </div>
         <button
           className={`${styles.button} ${
             !passwordError &&
@@ -88,9 +100,7 @@ const SignUpForm = () => {
         </button>
       </form>
     </>
-  )
+  );
 };
-      
-  
 
 export default SignUpForm;
