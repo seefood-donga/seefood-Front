@@ -20,7 +20,7 @@ const AppLayout = ({children, layoutHeader, noNav, noPadding ,hasBack = {has:tru
       {hasBack.has && <BackButton color={hasBack.color}/>}
     <main  style={{
             paddingTop: layoutHeader && "60px",
-            paddingBottom: !noNav ? "68px" : "0",
+            paddingBottom: !noNav ? "60px" : "0",
             paddingRight: !noPadding ? "8px":"0",
             paddingLeft: !noPadding ? "8px":"0",
             height: "100%"
