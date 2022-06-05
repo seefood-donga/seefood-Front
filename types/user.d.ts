@@ -4,4 +4,5 @@ export type User = {
   email:string;
   nickname:string;
   profileURL:string | null;
+  recomanded:number;
 }

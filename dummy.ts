@@ -4,7 +4,8 @@ import { User } from 'types/user';
 export const dummyUser :User = {
   email:"test@naver.com",
   nickname: "testUser",
-  profileURL:null
+  profileURL:null,
+  recomanded: 1000,
 }
 
 export const postList: Post[] = [
