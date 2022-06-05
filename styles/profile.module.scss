@@ -14,6 +14,7 @@
 }
 
 .calendar-section {
+  position: relative;
   width: 100%;
   height: 75%;
   padding: 24px 16px 16px 16px;
@@ -31,4 +32,32 @@
   img{
     border-radius: 50%;
   }
+}
+
+.nickname {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.edit-button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  background-color: white;
+  font-weight: 900;
+  font-size: 16px;
+  margin-top: 12px;
+  color: var(--primary);
+}
+.my-feed {
+  width: 80%;
+  position: absolute;
+  bottom:20px;
+  background-color: var(--primary);
+  font-size: 16px;
+  font-weight: 900;
+  transform: translateX(-50%);
+  padding: 8px 36px;
+  border-radius: 8px;
+  color:white;
 }
