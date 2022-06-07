@@ -87,7 +87,7 @@
 }
 
 .react-calendar__navigation > button {
-  color: black;
+  color: rgb(72, 72, 72);
 }
 .react-calendar__navigation > button > span {
   font-weight: 700;
