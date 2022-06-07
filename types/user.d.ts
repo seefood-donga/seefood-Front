@@ -5,4 +5,6 @@ export type User = {
   nickname:string;
   profileURL:string | null;
   recomanded:number;
+  likePost:Array<{id:number}>;
+  myUpload:Array<{id:number}>;
 }

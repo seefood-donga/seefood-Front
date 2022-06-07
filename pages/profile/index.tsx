@@ -5,6 +5,7 @@ import { dummyUser } from "dummy";
 import gravatar from "gravatar";
 import CustomCalendar from "components/custom/calendar";
 import EditIcon from "public/icons/edit.svg";
+import Link from "next/link";
 const ProfilePage: NextPageWithLayout = () => {
   // 벡엔드에서 유저정보 가져옴
   const userData = dummyUser;
@@ -24,20 +25,32 @@ const ProfilePage: NextPageWithLayout = () => {
             )}
             <span className={styles.nickname}>{userData.nickname}</span>
           </div>
-          <div >
-              <EditIcon fill="#ffffff" />
+          <div>
+            <EditIcon fill="#ffffff" />
           </div>
         </div>
       </section>
       <div className={styles["post-info"]}>
-        <span>나의 전체 식단 : 6</span>
-        <span>나의 관심 식단 : 3</span>
+        <Link href={`/profile/${userData.id}`}>
+          <a>
+            <span>나의 전체 식단 : {userData.myUpload.length}</span>
+          </a>
+        </Link>
+        <Link href="/like">
+          <a>
+            <span>나의 관심 식단 : {userData.likePost.length}</span>
+          </a>
+        </Link>
       </div>
       <section className={styles["calendar-section"]}>
-      <header>식단 일기</header>
-      <hr />
+        <header>식단 일기</header>
+        <hr />
         <CustomCalendar />
-        <button className={styles["my-feed"]}>전체 식단 보기</button>
+        <Link href={`/profile/${userData.id}`}>
+          <a>
+            <button className={styles["my-feed"]}>전체 식단 보기</button>
+          </a>
+        </Link>
       </section>
     </div>
   );

@@ -21,6 +21,7 @@ const PostImage = ({ imageUrl, calories }: Props) => {
         <div className={styles.background}>
           {calories.map((v, i) => (
             <span
+              key={i}
               style={{ top: `${v.position.y}px`, left: `${v.position.x}px` }}
             >
               {v.cal}

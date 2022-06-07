@@ -8,6 +8,7 @@ export type Post = {
   user: User;
   likers: Partial<User>[];
   hashtags:Array<string>;
+  category:"아침" | "점심" | "저녁";
 };
 
 type Calorie = {
