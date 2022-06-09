@@ -12,6 +12,8 @@ export const dummyUser: User = {
   myUpload: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
 };
 
+export const todayMyCalorie : number = 700;
+
 export const postList: Post[] = [
   {
     imageUrl: "/food.png",
@@ -101,5 +103,194 @@ export const dummyCalendarData: Calendar[] = [
   {
     date: "2022-06-25",
     cal: 1200,
+  },
+];
+
+export const dummyUserPost: Post[] = [
+  {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category:"아침"
+  },
+  {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category:"점심",
+  },
+  {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category:"아침"
+  },
+  {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category:"점심",
+  },
+  {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category:"아침"
+  },
+  {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category:"저녁",
   },
 ];
