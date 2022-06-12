@@ -9,13 +9,14 @@ import Link from "next/link";
 const ProfilePage: NextPageWithLayout = () => {
   // 벡엔드에서 유저정보 가져옴
   const userData = dummyUser;
+  
 
   return (
     <div className={styles.wrapper}>
       <section className={styles["profile-section"]}>
         <div className={styles.user}>
           <div className={styles["user-wrapper"]}>
-            {userData.profileURL ? (
+            {userData?.profileURL ? (
               <div>프로필 사진</div>
             ) : (
               <img
@@ -25,9 +26,11 @@ const ProfilePage: NextPageWithLayout = () => {
             )}
             <span className={styles.nickname}>{userData.nickname}</span>
           </div>
-          <div>
-            <EditIcon fill="#ffffff" />
-          </div>
+          <Link href="/profile/edit">
+            <a>
+              <EditIcon fill="#ffffff" />
+            </a>
+          </Link>
         </div>
       </section>
       <div className={styles["post-info"]}>
