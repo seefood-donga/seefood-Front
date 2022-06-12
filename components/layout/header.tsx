@@ -4,13 +4,16 @@ import React from "react";
 import styles from "styles/layout.module.scss";
 import { LayoutHeader } from "types/common";
 import gravatar from "gravatar";
+import Image from 'next/image';
 const Header = ({ title }: LayoutHeader) => {
   const router = useRouter();
-  const isLogin = true;
+  const isLogin = false;
   const userData = dummyUser;
   return (
     <header className={styles.header}>
-      {title ? <h2>{title}</h2> : <div className={styles.t1}>See Food!</div>}
+      {title ? <h2>{title}</h2> : <div className={styles.t1}>
+        <Image src='/logo/seefood-logo-color.png' alt='logo' width={120} height={25} />
+        </div>}
       <div className={styles.profile}>
         {isLogin ? (
           userData.profileURL ? (

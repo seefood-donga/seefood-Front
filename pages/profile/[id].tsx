@@ -53,7 +53,7 @@ const ProfileDetail: NextPageWithLayout = () => {
           </div>
         </div>
         <div className={styles["chart-section"]}>
-          <div>오늘 먹은 칼로리</div>
+          <div>today</div>
           <div className={styles.chart}>
             <CustomProgress valueStart={10} valueEnd={todayCal}>
               {(value) => (
@@ -87,7 +87,9 @@ const ProfileDetail: NextPageWithLayout = () => {
       </ul>
       <div className={styles.hr}>
         {category.map((v, i) => (
-          <div className={nowCategory === v ? styles.act : styles.non} >&nbsp;</div>
+          <div className={nowCategory === v ? styles.act : styles.non}>
+            &nbsp;
+          </div>
         ))}
       </div>
       <div className={styles["active-category"]}>
@@ -101,6 +103,7 @@ const ProfileDetail: NextPageWithLayout = () => {
     </div>
   );
 };
+
 ProfileDetail.noPadding = true;
 
 export default ProfileDetail;
