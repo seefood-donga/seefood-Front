@@ -2,11 +2,12 @@ import { dummyUser, dummyUserPost, todayMyCalorie } from "dummy";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { NextPageWithLayout } from "types/common";
-import gravatar from "gravatar";
 import styles from "styles/profile/profile-detail.module.scss";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import CustomProgress from "components/custom/progress";
 import CustomUserPost from "components/custom/user-post";
+import ProfileImage from 'components/custom/profile-image';
+import CategorySection from 'components/custom/category-section';
 
 const ProfileDetail: NextPageWithLayout = () => {
   const router = useRouter();
@@ -18,9 +19,7 @@ const ProfileDetail: NextPageWithLayout = () => {
   const todayCal = todayMyCalorie;
 
   const [caution, setCaution] = useState(false);
-  const [nowCategory, setNowCategory] = useState("전체");
-
-  const category = useMemo(() => ["전체", "아침", "점심", "저녁"], []);
+  
 
   useEffect(() => {
     if (userData.recomanded < todayCal) {
@@ -32,15 +31,8 @@ const ProfileDetail: NextPageWithLayout = () => {
       <div className={styles.header}>{userData.nickname} 님의 식단</div>
       <section className={styles["profile-section"]}>
         <div className={styles["profile-wrapper"]}>
-          <div className={styles.profile}>
-            {userData.profileURL ? (
-              <div>프로필 사진</div>
-            ) : (
-              <img
-                src={gravatar.url(userData.email, { s: "50px", d: "mp" })}
-                alt="garvatar"
-              />
-            )}
+          <div>
+            <ProfileImage size={50} />
             <div className={styles.nickname}>{userData.nickname}</div>
           </div>
           <div className={styles["user-info"]}>
@@ -72,29 +64,7 @@ const ProfileDetail: NextPageWithLayout = () => {
           <div>{`${todayCal} / ${userData.recomanded} Cal`}</div>
         </div>
       </section>
-      <ul className={styles.category}>
-        {category.map((v, i) => (
-          <span>
-            <li
-              key={i}
-              className={nowCategory === v ? styles.active : ""}
-              onClick={() => setNowCategory(v)}
-            >
-              {v}
-            </li>
-          </span>
-        ))}
-      </ul>
-      <div className={styles.hr}>
-        {category.map((v, i) => (
-          <div className={nowCategory === v ? styles.act : styles.non}>
-            &nbsp;
-          </div>
-        ))}
-      </div>
-      <div className={styles["active-category"]}>
-        <div></div>
-      </div>
+      <CategorySection />
       <section className={styles["post-section"]}>
         <div className={styles["post-wrapper"]}>
           <CustomUserPost userPost={userPost} />

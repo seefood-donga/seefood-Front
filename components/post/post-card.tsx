@@ -5,6 +5,7 @@ import PostImage from "./post-image";
 import gravatar from "gravatar";
 import HeartIcon from "public/icons/heartColored.svg";
 import BlankHeartIcon from "public/icons/heart.svg";
+import ProfileImage from 'components/custom/profile-image';
 
 interface Props {
   postData: Post;
@@ -24,14 +25,7 @@ const PostCard = ({ postData }: Props) => {
     <div className={styles.card}>
       <header>
         <section className={styles["user-info"]}>
-          {postData.user.profileURL ? (
-            <div>프로필 사진</div>
-          ) : (
-            <img
-              src={gravatar.url(postData.user.email, { s: "40px", d: "mp" })}
-              alt="garvatar"
-            />
-          )}
+          <ProfileImage size={40} />
           <div className={styles.nickname}>{postData.user.nickname}</div>
         </section>
       </header>

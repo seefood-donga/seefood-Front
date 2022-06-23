@@ -5,10 +5,10 @@ import styles from "styles/layout.module.scss";
 import { LayoutHeader } from "types/common";
 import gravatar from "gravatar";
 import Image from 'next/image';
+import ProfileImage from 'components/custom/profile-image';
 const Header = ({ title }: LayoutHeader) => {
   const router = useRouter();
   const isLogin = false;
-  const userData = dummyUser;
   return (
     <header className={styles.header}>
       {title ? <h2>{title}</h2> : <div className={styles.t1}>
@@ -16,14 +16,7 @@ const Header = ({ title }: LayoutHeader) => {
         </div>}
       <div className={styles.profile}>
         {isLogin ? (
-          userData.profileURL ? (
-            <div>프로필 사진</div>
-          ) : (
-            <img
-              src={gravatar.url(userData.email, { s: "36px", d: "mp" })}
-              alt="garvatar"
-            />
-          )
+          <ProfileImage size={36} />
         ) : (
           <button onClick={() => router.replace("/login")}>LogIn</button>
         )}
