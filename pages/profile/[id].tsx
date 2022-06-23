@@ -32,7 +32,7 @@ const ProfileDetail: NextPageWithLayout = () => {
       <div className={styles.header}>{userData.nickname} 님의 식단</div>
       <section className={styles["profile-section"]}>
         <div className={styles["profile-wrapper"]}>
-          <div className={styles.profile}>
+          <div>
             {userData.profileURL ? (
               <div>프로필 사진</div>
             ) : (

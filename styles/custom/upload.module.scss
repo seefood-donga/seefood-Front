@@ -3,7 +3,8 @@
   position: absolute;
   z-index: 999999;
   bottom: 70px;
-  background-color: #00ac78;
+  background-color: var(--primary);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
   border-radius: 50%;
   right: 10px;
   width: 50px;
