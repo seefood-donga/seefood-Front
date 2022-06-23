@@ -6,54 +6,40 @@ import gravatar from "gravatar";
 import CustomCalendar from "components/custom/calendar";
 import EditIcon from "public/icons/edit.svg";
 import Link from "next/link";
+import ProfileImage from "components/custom/profile-image";
+import CustomLink from "components/custom/link";
 const ProfilePage: NextPageWithLayout = () => {
   // 벡엔드에서 유저정보 가져옴
   const userData = dummyUser;
-  
 
   return (
     <div className={styles.wrapper}>
       <section className={styles["profile-section"]}>
         <div className={styles.user}>
           <div className={styles["user-wrapper"]}>
-            {userData?.profileURL ? (
-              <div>프로필 사진</div>
-            ) : (
-              <img
-                src={gravatar.url(userData.email, { s: "50px", d: "mp" })}
-                alt="garvatar"
-              />
-            )}
+            <ProfileImage size={50} />
             <span className={styles.nickname}>{userData.nickname}</span>
           </div>
-          <Link href="/profile/edit">
-            <a>
-              <EditIcon fill="#ffffff" />
-            </a>
-          </Link>
+          <CustomLink path="/profile/edit">
+            <EditIcon fill="#ffffff" />
+          </CustomLink>
         </div>
       </section>
       <div className={styles["post-info"]}>
-        <Link href={`/profile/${userData.id}`}>
-          <a>
-            <span>나의 전체 식단 : {userData.myUpload.length}</span>
-          </a>
-        </Link>
-        <Link href="/like">
-          <a>
-            <span>나의 관심 식단 : {userData.likePost.length}</span>
-          </a>
-        </Link>
+        <CustomLink path={`/profile/${userData.id}`}>
+          <span>나의 전체 식단 : {userData.myUpload.length}</span>
+        </CustomLink>
+        <CustomLink path="/like">
+          <span>나의 관심 식단 : {userData.likePost.length}</span>
+        </CustomLink>
       </div>
       <section className={styles["calendar-section"]}>
         <header>식단 일기</header>
         <hr />
         <CustomCalendar />
-        <Link href={`/profile/${userData.id}`}>
-          <a>
-            <button className={styles["my-feed"]}>전체 식단 보기</button>
-          </a>
-        </Link>
+        <CustomLink path={`/profile/${userData.id}`}>
+          <button className={styles["my-feed"]}>전체 식단 보기</button>
+        </CustomLink>
       </section>
     </div>
   );
