@@ -6,8 +6,8 @@ import styles from "styles/profile/profile-detail.module.scss";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import CustomProgress from "components/custom/progress";
 import CustomUserPost from "components/custom/user-post";
-import ProfileImage from 'components/custom/profile-image';
-import CategorySection from 'components/custom/category-section';
+import ProfileImage from "components/custom/profile-image";
+import CategorySection from "components/custom/category-section";
 
 const ProfileDetail: NextPageWithLayout = () => {
   const router = useRouter();
@@ -19,7 +19,6 @@ const ProfileDetail: NextPageWithLayout = () => {
   const todayCal = todayMyCalorie;
 
   const [caution, setCaution] = useState(false);
-  
 
   useEffect(() => {
     if (userData.recomanded < todayCal) {
