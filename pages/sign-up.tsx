@@ -1,22 +1,22 @@
-import AuthLayout from 'components/auth/layout';
-import LoginForm from 'components/auth/login';
-import SignUpForm from 'components/auth/sign-up';
-import React from 'react';
-import { NextPageWithLayout } from 'types/common';
+import AuthLayout from "components/auth/layout";
+import LoginForm from "components/auth/login";
+import SignUpForm from "components/auth/sign-up";
+import React from "react";
+import { NextPageWithLayout } from "types/common";
 
-const SignUpPage : NextPageWithLayout = () =>{
+const SignUpPage: NextPageWithLayout = () => {
   return (
     <AuthLayout>
-     <SignUpForm />
+      <SignUpForm />
     </AuthLayout>
-  )
-}
+  );
+};
 
 SignUpPage.noNav = true;
-SignUpPage.noPadding= true;
+SignUpPage.noPadding = true;
 SignUpPage.back = {
-  has:true,
-  color:"white",
-}
+  has: true,
+  color: "white",
+};
 
 export default SignUpPage;

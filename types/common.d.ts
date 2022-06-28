@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 
 type LayoutHeader ={
   title?: string;
+  noProfile?:boolean;
 }
 
 type NextPageWithLayout = NextPage & {

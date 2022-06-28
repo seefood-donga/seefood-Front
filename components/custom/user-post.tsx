@@ -8,7 +8,7 @@ const CustomUserPost = ({userPost}:Props) => {
   return (
     <>
       {
-        userPost.map((v, i)=>  <Image src={v.imageUrl} width={130} height={100} alt="post" />)
+        userPost.map((v, i)=>  <Image key={i} src={v.imageUrl} width={130} height={100} alt="post" />)
       }
     </>
   )

@@ -10,9 +10,8 @@ const CategorySection = () => {
     <>
       <ul className={styles.category}>
         {category.map((v, i) => (
-          <span>
+          <span key={i}>
             <li
-              key={i}
               className={nowCategory === v ? styles.active : ""}
               onClick={() => setNowCategory(v)}
             >
@@ -23,7 +22,7 @@ const CategorySection = () => {
       </ul>
       <div className={styles.hr}>
         {category.map((v, i) => (
-          <div className={nowCategory === v ? styles.act : styles.non}>
+          <div key={i} className={nowCategory === v ? styles.act : styles.non}>
             &nbsp;
           </div>
         ))}
