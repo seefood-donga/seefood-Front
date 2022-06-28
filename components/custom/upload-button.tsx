@@ -1,6 +1,6 @@
 import React from "react";
 import PlusIcon from "public/icons/plus.svg";
-import styles from "styles/custom/upload.module.scss";
+import styles from "styles/custom/upload-button.module.scss";
 import Link from "next/link";
 
 const UploadButton = () => {

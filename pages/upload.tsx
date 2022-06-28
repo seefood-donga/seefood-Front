@@ -1,16 +1,17 @@
-import CompleteButton from 'components/custom/complete-button';
+import UploadForm from "components/upload";
 import React from "react";
 import { NextPageWithLayout } from "types/common";
+import styles from "styles/upload/upload.module.scss";
 
 const UploadPage: NextPageWithLayout = () => {
   return (
-    <div>
-      <CompleteButton />
-      <div>업로드 페이지</div>
+    <div className={styles.wrapper}>
+      <UploadForm />
     </div>
   );
 };
 UploadPage.header = { title: "식단 업로드", noProfile: true };
 UploadPage.noNav = true;
+UploadPage.noPadding = true;
 
 export default UploadPage;
