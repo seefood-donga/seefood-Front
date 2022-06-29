@@ -4,6 +4,7 @@ import "public/font/style.css";
 import "styles/globals.scss";
 import "styles/custom/calendar.css";
 import "react-circular-progressbar/dist/styles.css";
+import wrapper from 'store/store';
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const layoutHeader = Component.header;
   const hasBack = Component.back;
@@ -18,4 +19,4 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

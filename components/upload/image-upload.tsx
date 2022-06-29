@@ -4,6 +4,8 @@ import UploadIcon from 'public/icons/upload.svg';
 import DeleteIcon from 'public/icons/delete.svg';
 import CheckedIcon from 'public/icons/checked.svg';
 import styles from "styles/upload/upload.module.scss";
+import { useSelector } from 'react-redux';
+import { RootState } from 'reducer';
 
 
 const DefaultImage = () => {
@@ -17,7 +19,7 @@ const DefaultImage = () => {
 
 const ImageUploadModule = () => {
   const [isUpload, setIsUpload] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
+  const { imageUrl } = useSelector((state:RootState)=> state.upload);
   return (
     <div className={styles.container}>
       <div className={styles["img-wrapper"]}>
