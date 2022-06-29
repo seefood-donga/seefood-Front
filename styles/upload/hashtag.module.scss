@@ -1,3 +1,34 @@
-.tag-wrapper{
+.tag-wrapper {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+  margin-top: 16px;
+}
+.input {
+  font-family: Pretendard;
+  border: none;
+  max-width: 120px;
+  padding: 8px 16px;
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary);
+    max-width: 80px;
+  }
+}
+
+.tag {
+  padding: 8px 16px;
+  margin: 0 auto;
+  border-radius: 32px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  & svg {
+    margin-left: 6px;
+  }
 }
