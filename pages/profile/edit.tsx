@@ -5,7 +5,7 @@ import { NextPageWithLayout } from 'types/common';
 const ProfileEditPage:NextPageWithLayout = () => {
   return (
     <div>
-      <CompleteButton/>
+      <CompleteButton onClickHandler={()=> console.log('submit handler')} isActive={false}/>
       Profile Edit Page
     </div>
   )
