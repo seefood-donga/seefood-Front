@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useCallback, useRef, useState } from "react";
 import NoImage from "public/icons/no-image.svg";
-import UploadIcon from 'public/icons/upload.svg';
-import DeleteIcon from 'public/icons/delete.svg';
-import CheckedIcon from 'public/icons/checked.svg';
+import UploadIcon from "public/icons/upload.svg";
+import DeleteIcon from "public/icons/delete.svg";
+import CheckedIcon from "public/icons/checked.svg";
 import styles from "styles/upload/upload.module.scss";
-import { useSelector } from 'react-redux';
-import { RootState } from 'reducer';
-
+import { useSelector } from "react-redux";
+import { RootState } from "reducer";
 
 const DefaultImage = () => {
   return (
@@ -19,7 +18,20 @@ const DefaultImage = () => {
 
 const ImageUploadModule = () => {
   const [isUpload, setIsUpload] = useState(false);
-  const { imageUrl } = useSelector((state:RootState)=> state.upload);
+  const { imageUrl } = useSelector((state: RootState) => state.upload);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const onChangeImage = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setIsUpload(true);
+    const Image = e.target.files;
+    console.log(e.target);
+  },
+  []);
+
+  const imageUploadHandler = useCallback(() => {
+    inputRef.current!.click();
+  }, [inputRef.current]);
+
   return (
     <div className={styles.container}>
       <div className={styles["img-wrapper"]}>
@@ -27,8 +39,7 @@ const ImageUploadModule = () => {
       </div>
       <ul>
         <li>
-          <input type='file' hidden/>
-          <UploadIcon />
+          <UploadIcon onClick={imageUploadHandler} />
         </li>
         <li>
           <DeleteIcon />
@@ -37,6 +48,13 @@ const ImageUploadModule = () => {
           <CheckedIcon />
         </li>
       </ul>
+      <input
+        type="file"
+        name="file"
+        ref={inputRef}
+        onChange={onChangeImage}
+        hidden
+      />
     </div>
   );
 };
