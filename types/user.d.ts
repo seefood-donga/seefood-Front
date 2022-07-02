@@ -7,4 +7,6 @@ export type User = {
   recomanded:number;
   likePost:Array<{id:number}>;
   myUpload:Array<{id:number}>;
+  height:number;
+  weight:number;
 }

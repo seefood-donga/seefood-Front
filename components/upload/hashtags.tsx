@@ -51,7 +51,7 @@ const Hashtags = () => {
           onChange={onChangeTagInput}
           onKeyUp={onKeyUp}
           placeholder="태그 추가"
-          maxLength={5}
+          maxLength={8}
         />
       </li>
     </ul>
