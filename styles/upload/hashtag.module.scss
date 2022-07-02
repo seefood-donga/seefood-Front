@@ -8,13 +8,12 @@
 .input {
   font-family: Pretendard;
   border: none;
-  max-width: 120px;
+  max-width: 90px;
   padding: 8px 16px;
-
   &:focus {
     outline: none;
     border-bottom: 2px solid var(--primary);
-    max-width: 80px;
+    max-width: 90px;
   }
 }
 
@@ -25,8 +24,8 @@
   background-color: var(--primary);
   color: white;
   font-weight: 700;
-  font-size: 18px;
   display: flex;
+  font-size: 14px;
   align-items: center;
   & svg {
     margin-left: 6px;

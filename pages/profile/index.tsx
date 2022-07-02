@@ -21,7 +21,7 @@ const ProfilePage: NextPageWithLayout = () => {
             <span className={styles.nickname}>{userData.nickname}</span>
           </div>
           <CustomLink path="/profile/edit">
-            <EditIcon fill="#ffffff" />
+            <EditIcon width={16} height={16} fill="#ffffff" />
           </CustomLink>
         </div>
       </section>

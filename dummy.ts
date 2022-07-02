@@ -10,6 +10,8 @@ export const dummyUser: User = {
   recomanded: 1000,
   likePost: [{ id: 1 }, { id: 2 }, { id: 3 }],
   myUpload: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
+  height: 170,
+  weight: 50
 };
 
 export const todayMyCalorie : number = 700;

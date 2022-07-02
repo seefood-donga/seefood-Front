@@ -24,6 +24,11 @@ const uploadSlice = createSlice({
     },
     deleteTag(state, action) {
       state.tags = state.tags.filter(tag => tag !== action.payload);
+    },
+    initData(state,action) {
+      state.imageUrl=""
+      state.nowCategory ="";
+      state.tags =[];
     }
   }
 });
