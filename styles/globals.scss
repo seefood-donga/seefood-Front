@@ -16,7 +16,10 @@ body {
   height: 100%;
   display: grid;
   place-items: center;
-  overflow-y: auto;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 /*백업 : #00ac77*/
 * {

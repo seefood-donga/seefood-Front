@@ -1,9 +1,9 @@
 import { Calendar } from "types/calendar";
 import { Post } from "types/post";
-import { User } from "types/user";
+import { RankUser, User } from "types/user";
 
 export const dummyUser: User = {
-  id:1,
+  id: 1,
   email: "test@naver.com",
   nickname: "testUser",
   profileURL: null,
@@ -11,10 +11,42 @@ export const dummyUser: User = {
   likePost: [{ id: 1 }, { id: 2 }, { id: 3 }],
   myUpload: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
   height: 170,
-  weight: 50
+  weight: 50,
 };
 
-export const todayMyCalorie : number = 700;
+export const todayMyCalorie: number = 700;
+
+export const singlePost:Post = {
+    imageUrl: "/food.png",
+    user: dummyUser,
+    calories: [
+      {
+        cal: 300,
+        position: {
+          x: 90,
+          y: 50,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 150,
+          y: 150,
+        },
+      },
+      {
+        cal: 500,
+        position: {
+          x: 220,
+          y: 60,
+        },
+      },
+    ],
+    likers: [],
+    hashtags: ["건강식단", "아침식사", "비건"],
+    createdAt: "3일전",
+    category: "아침",
+}
 
 export const postList: Post[] = [
   {
@@ -46,7 +78,7 @@ export const postList: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"아침"
+    category: "아침",
   },
   {
     imageUrl: "/food.png",
@@ -77,7 +109,7 @@ export const postList: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"점심",
+    category: "점심",
   },
 ];
 
@@ -138,7 +170,7 @@ export const dummyUserPost: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"아침"
+    category: "아침",
   },
   {
     imageUrl: "/food.png",
@@ -169,7 +201,7 @@ export const dummyUserPost: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"점심",
+    category: "점심",
   },
   {
     imageUrl: "/food.png",
@@ -200,7 +232,7 @@ export const dummyUserPost: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"아침"
+    category: "아침",
   },
   {
     imageUrl: "/food.png",
@@ -231,7 +263,7 @@ export const dummyUserPost: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"점심",
+    category: "점심",
   },
   {
     imageUrl: "/food.png",
@@ -262,7 +294,7 @@ export const dummyUserPost: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"아침"
+    category: "아침",
   },
   {
     imageUrl: "/food.png",
@@ -293,6 +325,75 @@ export const dummyUserPost: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category:"저녁",
+    category: "저녁",
+  },
+];
+
+export const rankList: RankUser[] = [
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 1300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
+  },
+  {
+    id: 1,
+    profileURL: null,
+    nickname: "test사용자",
+    total: 300,
   },
 ];

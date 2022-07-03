@@ -10,3 +10,10 @@ export type User = {
   height:number;
   weight:number;
 }
+
+export type RankUser = {
+  id:number;
+  profileURL:string | null;
+  nickname:string;
+  total:number;
+}
