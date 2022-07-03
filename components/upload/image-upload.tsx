@@ -45,7 +45,7 @@ const ImageUploadModule = () => {
           <DeleteIcon />
         </li>
         <li>
-          <CheckedIcon />
+          <CheckedIcon width={20} height={20}/>
         </li>
       </ul>
       <input
