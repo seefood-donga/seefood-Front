@@ -1,13 +1,19 @@
 import { dummyUser } from "dummy";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import styles from "styles/layout.module.scss";
 import { LayoutHeader } from "types/common";
 import Image from "next/image";
 import ProfileImage from "components/custom/profile-image";
+import ProfilePopUp from "components/custom/pofile-popup";
+import useModal from 'hooks/use-modal';
+import LogoutModal from 'components/modal/logout-modal';
 const Header = ({ title, noProfile }: LayoutHeader) => {
   const router = useRouter();
-  const isLogin = true;
+  const userData = dummyUser;
+  const [showPopup, setShowPopup] = useState(false);
+  const {isOpen, onClose, setIsOpen} = useModal();
+  
   return (
     <header className={styles.header}>
       {title ? (
@@ -23,9 +29,18 @@ const Header = ({ title, noProfile }: LayoutHeader) => {
         </div>
       )}
       {!noProfile && (
-        <div className={styles.profile}>
-          {isLogin ? (
-            <ProfileImage size={36} />
+        <div
+          onClick={() => setShowPopup((prev) => !prev)}
+          className={styles.profile}
+        >
+          {userData ? (
+            <div>
+              <ProfileImage size={36} />
+              {showPopup && (
+                <ProfilePopUp userData={userData} setPopup={setShowPopup} setModal={setIsOpen} />
+              )}
+              <LogoutModal show={isOpen} close={onClose} />
+            </div>
           ) : (
             <button onClick={() => router.replace("/login")}>LogIn</button>
           )}
