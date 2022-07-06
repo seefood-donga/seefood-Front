@@ -1,0 +1,28 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  white-space: nowrap;
+  padding: 16px;
+  background-color: #f3f2f2;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  right: 0px;
+  border-radius: 6px;
+  & section {
+    display: flex;
+    & h4{
+      margin-left: 12px;
+    }
+  }
+  & hr {
+    border: 0.5px solid #dadada;
+    margin: 8px 0px;
+  }
+  & button {
+    &:last-child{
+      width: 160px;
+      margin-top: 8px;
+      background-color: var(--red);
+    }
+  }
+}

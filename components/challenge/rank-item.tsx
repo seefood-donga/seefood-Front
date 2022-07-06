@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { RankUser } from "types/user";
 import styles from "styles/challenge/rank.module.scss";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import selectedSlice from "reducer/selectId";
+import { useSelector } from "react-redux";
+import { RootState } from "reducer";
+
 interface Props {
   userData: RankUser;
 }
 const RankItem = ({ userData }: Props) => {
+  const { seletedId } = useSelector((state: RootState) => state.selected);
+  const dispatch = useDispatch();
   console.log(userData);
+  const onSelectBox = useCallback(() => {
+    dispatch(selectedSlice.actions.selectId(userData.id));
+  }, [dispatch]);
   return (
-    <div className={styles.box}>
+    <div
+      className={
+        userData.id === Number(seletedId)
+          ? `${styles.box} ${styles.selected}`
+          : styles.box
+      }
+      onClick={onSelectBox}
+    >
       {userData.profileURL ? (
         <div>프로필 사진</div>
       ) : (

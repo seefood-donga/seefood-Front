@@ -1,0 +1,30 @@
+.icon{
+  text-align: center;
+  & svg{
+    fill:var(--light-red);
+  }
+  & div {
+    padding: 27px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: rgba(244, 171, 153, 0.25);
+    margin-bottom: 30px;
+  }
+}
+
+.button-section {
+  width: 100%;
+  display: flex;
+  gap:25px;
+  & button{
+    flex:1;
+    padding: 8px 0px;
+    border-radius: 4px;
+    margin-top: 12px;
+    background-color: #c4c4c4;
+    color:white;
+    &:nth-child(1){
+      background-color: var(--red);
+    }
+  }
+}

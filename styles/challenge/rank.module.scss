@@ -18,7 +18,7 @@
 
 .box {
   display: inline-block;
-  padding: 12px;
+  padding: 12px 20px 12px 12px;
   min-width: 120px;
   background-color: white;
   border-radius: 8px;
@@ -40,7 +40,9 @@
 }
 .post {
   margin-top: 156px;
-  
+  & .post_img-wrapper{
+    width: 50%;
+  }
 }
 
 .card {
@@ -64,4 +66,9 @@
     padding-bottom: 4px;
     color: darkgrey;
   }
+}
+
+.box.selected{
+  background-color: var(--primary);
+  color: white;
 }
