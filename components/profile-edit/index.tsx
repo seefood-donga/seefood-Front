@@ -1,17 +1,34 @@
 import CompleteButton from "components/custom/complete-button";
 import { dummyUser } from "dummy";
 import Image from "next/image";
-import React, { FormEvent, MouseEvent, useCallback } from "react";
+import React, { FormEvent, MouseEvent, useCallback, useEffect } from "react";
 import { useState } from "react";
 import styles from "styles/profile/profile-edit.module.scss";
 import EditIcon from "public/icons/edit.svg";
 import CameraIcon from "public/icons/camera.svg";
+import { useSelector } from "react-redux";
+import { RootState } from "reducer";
+import { useDispatch } from "react-redux";
+import profileSlice from "reducer/profile";
+import useModal from 'hooks/use-modal';
+import ProfileEditModal from 'components/modal/profile-edit';
 const ProfileEditForm = () => {
   const uploadSubmit = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     console.log("업로드 버튼 클릭");
   }, []);
+  const {isOpen, onClose, setIsOpen}= useModal()
   const userData = dummyUser;
-  const [profileUrl, setProfileUrl] = useState(userData.profileURL);
+  const { imageUrl, nickname, height, weight } = useSelector(
+    (state: RootState) => state.profile
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(profileSlice.actions.deleteImageUrl(userData.profileURL));
+    dispatch(profileSlice.actions.setNickname(userData.nickname));
+    dispatch(profileSlice.actions.setHeight(userData.height));
+    dispatch(profileSlice.actions.setWeight(userData.weight));
+  }, []);
+  
   return (
     <form
       onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
@@ -19,8 +36,8 @@ const ProfileEditForm = () => {
     >
       <CompleteButton onClickHandler={uploadSubmit} isActive={false} />
       <section className={styles["img-wrapper"]}>
-        {profileUrl ? (
-          <Image src={profileUrl} alt="profile-image" />
+        {userData.profileURL ? (
+          <Image src={imageUrl} alt="profile-image" />
         ) : (
           <Image
             src="/images/default-profile.png"
@@ -35,7 +52,7 @@ const ProfileEditForm = () => {
       </section>
       <hr />
       <h4>기본 정보 수정</h4>
-      <span className={styles.edit}>
+      <span onClick={()=> setIsOpen(true)} className={styles.edit}>
         <EditIcon width={16} height={16} fill="#00ac78" />
       </span>
       <div style={{ marginTop: 16 }} className={styles.box}>
@@ -45,22 +62,23 @@ const ProfileEditForm = () => {
       <div className={`${styles.box}`}>
         <div>
           <span>닉네임 수정</span>
-          <p>{dummyUser.nickname}</p>
+          <p>{nickname}</p>
         </div>
       </div>
       <div className={styles["flex-box"]}>
         <div className={styles.box}>
           <span>키</span>
-          <p>{dummyUser.height}</p>
+          <p>{height}</p>
         </div>
         <span className={styles.cm}>cm</span>
         <div className={styles.box}>
-          <div/>
+          <div />
           <span>몸무게</span>
-          <p>{dummyUser.weight}</p>
+          <p>{weight}</p>
         </div>
         <span className={styles.kg}>kg</span>
       </div>
+      <ProfileEditModal show={isOpen} close={onClose} />
     </form>
   );
 };

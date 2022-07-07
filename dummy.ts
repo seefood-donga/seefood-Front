@@ -115,27 +115,27 @@ export const postList: Post[] = [
 
 export const dummyCalendarData: Calendar[] = [
   {
-    date: "2022-06-08",
+    date: "2022-07-08",
     cal: 1200,
   },
   {
-    date: "2022-06-09",
+    date: "2022-07-09",
     cal: 900,
   },
   {
-    date: "2022-06-11",
+    date: "2022-07-11",
     cal: 800,
   },
   {
-    date: "2022-06-13",
+    date: "2022-07-13",
     cal: 800,
   },
   {
-    date: "2022-06-21",
+    date: "2022-07-21",
     cal: 800,
   },
   {
-    date: "2022-06-25",
+    date: "2022-07-25",
     cal: 1200,
   },
 ];
