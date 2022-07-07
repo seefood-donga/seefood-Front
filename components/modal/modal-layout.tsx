@@ -18,7 +18,7 @@ const ModalLayout = ({ children, show, close }: Props) => {
     <ModalPotal>
       <div onClick={onClose} className={styles["modal-wrapper"]}>
         <div className={styles.background}>
-        <div id="inner" className={styles["modal-inner"]}>
+        <div onClick={(e:SyntheticEvent)=> e.stopPropagation()} id="inner" className={styles["modal-inner"]}>
           {children}
         </div>
         </div>
