@@ -1,0 +1,31 @@
+.wrapper {
+  & h4 {
+    margin-bottom: 8px;
+  }
+}
+.profile {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  & span {
+    margin-bottom: 24px;
+  }
+}
+
+.button-section {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  & button{
+    flex:1;
+    padding: 8px 0px;
+    border-radius: 4px;
+    background-color: #c4c4c4;
+    font-size: 16px;
+    font-weight: 700;
+    color:white;
+    &:nth-child(1){
+      background-color: var(--primary-dark);
+    }
+  }
+}

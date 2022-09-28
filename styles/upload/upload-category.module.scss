@@ -1,0 +1,17 @@
+.list{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+  & li{
+    padding :8px 32px;
+    border: 0.5px solid #c1c1c1;
+    border-radius: 8px;
+    color: #c1c1c1;
+    &.active{
+      border: none;
+      font-weight: 800;
+      color: white;
+      background-color: var(--primary);
+    }
+  }
+}
