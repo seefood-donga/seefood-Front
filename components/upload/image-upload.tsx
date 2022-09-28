@@ -4,8 +4,8 @@ import UploadIcon from "public/icons/upload.svg";
 import DeleteIcon from "public/icons/delete.svg";
 import CheckedIcon from "public/icons/checked.svg";
 import styles from "styles/upload/upload.module.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "reducer";
+import { useRecoilValue } from 'recoil';
+import { uploadImageAtom } from 'recoils/upload';
 
 const DefaultImage = () => {
   return (
@@ -18,7 +18,7 @@ const DefaultImage = () => {
 
 const ImageUploadModule = () => {
   const [isUpload, setIsUpload] = useState(false);
-  const { imageUrl } = useSelector((state: RootState) => state.upload);
+  const imageUrl = useRecoilValue(uploadImageAtom);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onChangeImage = useCallback((e: ChangeEvent<HTMLInputElement>) => {

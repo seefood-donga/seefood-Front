@@ -4,8 +4,8 @@ import "public/font/style.css";
 import "styles/globals.scss";
 import "styles/custom/calendar.css";
 import "react-circular-progressbar/dist/styles.css";
-import wrapper from "store/store";
 import { DefaultSeo } from "next-seo";
+import { RecoilRoot } from "recoil";
 
 const DEFAULT_SEO = {
   title: "SeeFood",
@@ -36,10 +36,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <>
       <DefaultSeo {...DEFAULT_SEO} />
       <AppLayout {...{ layoutHeader, noNav, noPadding, hasBack }}>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </AppLayout>
     </>
   );
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;
