@@ -2,7 +2,6 @@ import React from "react";
 import { NextPageWithLayout } from "types/common";
 import styles from "styles/profile/profile.module.scss";
 import { dummyUser } from "dummy";
-import gravatar from "gravatar";
 import CustomCalendar from "components/custom/calendar";
 import EditIcon from "public/icons/edit.svg";
 import Link from "next/link";
