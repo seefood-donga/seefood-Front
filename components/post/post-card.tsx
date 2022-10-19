@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 import styles from "styles/post/post.module.scss";
 import { Post } from "types/post";
 import PostImage from "./post-image";
-import gravatar from "gravatar";
 import HeartIcon from "public/icons/heartColored.svg";
 import BlankHeartIcon from "public/icons/heart.svg";
 import ProfileImage from 'components/custom/profile-image';

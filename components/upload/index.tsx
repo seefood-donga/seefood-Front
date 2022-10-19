@@ -1,21 +1,29 @@
 import CompleteButton from "components/custom/complete-button";
 import React, { FormEvent, MouseEvent, useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import uploadSlice from "reducer/upload";
+import { useResetRecoilState } from "recoil";
+import { nowCategoryAtom, tagsAtom, uploadImageAtom } from "recoils/upload";
 import styles from "styles/upload/upload.module.scss";
 import Hashtags from "./hashtags";
 import ImageUploadModule from "./image-upload";
 import UploadCategory from "./upload-category";
 
 const UploadForm = () => {
-  const dispatch = useDispatch();
+
+  const imageInit = useResetRecoilState(uploadImageAtom);
+  const nowCategoryInit = useResetRecoilState(nowCategoryAtom);
+  const tagsInit = useResetRecoilState(tagsAtom);
+
   const uploadSubmit = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("업로드 버튼 클릭");
   }, []);
 
   useEffect(() => {
-    dispatch(uploadSlice.actions.initData({}));
+    return () => {
+      imageInit();
+      nowCategoryInit();
+      tagsInit();
+    };
   }, []);
 
   return (
