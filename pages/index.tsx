@@ -9,6 +9,7 @@ const MainPage: NextPageWithLayout = () => {
       <SearchBar />
       <div style={{ paddingTop: 60 }}>
         <PostList />
+        <div>배포 테스트</div>
         <UploadButton />
       </div>
     </>
