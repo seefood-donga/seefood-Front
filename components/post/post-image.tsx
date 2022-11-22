@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useCallback, useState } from "react";
+import React, { MouseEvent, useCallback, useState } from "react";
 import styles from "styles/post/post.module.scss";
 import { Calorie } from "types/post";
 
@@ -10,7 +10,8 @@ interface Props {
 
 const PostImage = ({ imageUrl, calories }: Props) => {
   const [showCalorie, setShowCalorie] = useState(false);
-  const toggleShow = useCallback(() => {
+  const toggleShow = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setShowCalorie((prev) => !prev);
   }, []);
 

@@ -4,6 +4,7 @@ import { LayoutHeader } from 'types/common';
 import BackButton from './back';
 import Header from './header';
 import NavBar from './navbar';
+import {getCookie} from 'cookies-next';
 
 interface Props {
   children:ReactNode;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const AppLayout = ({children, layoutHeader, noNav, noPadding ,hasBack = {has:true, color:"grey"}}: Props) =>{
+  const isLogin = getCookie('accessToken');
   return (
     <div className={styles.wrapper}>
       {layoutHeader && <Header {...layoutHeader}/>}
@@ -27,7 +29,7 @@ const AppLayout = ({children, layoutHeader, noNav, noPadding ,hasBack = {has:tru
           }}>
       {children}
     </main>
-      {!noNav && <NavBar />}
+      {!noNav && isLogin && <NavBar />}
     </div>
   );
 }

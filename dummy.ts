@@ -109,18 +109,19 @@ export const postList: Post[] = [
     likers: [],
     hashtags: ["건강식단", "아침식사", "비건"],
     createdAt: "3일전",
-    category: "점심",
+    category: "아침",
   },
+  
 ];
 
 export const dummyCalendarData: Calendar[] = [
   {
     date: "2022-07-08",
-    cal: 1200,
+    cal: 1800,
   },
   {
-    date: "2022-07-09",
-    cal: 900,
+    date: "2022-07-08",
+    cal: 100,
   },
   {
     date: "2022-07-11",

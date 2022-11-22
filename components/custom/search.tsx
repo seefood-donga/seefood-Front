@@ -2,8 +2,10 @@ import useInput from "hooks/use-input";
 import React from "react";
 import styles from "styles/custom/search.module.scss";
 import SearchIcon from "public/icons/search.svg";
+import { useRouter } from "next/router";
 
 const SearchBar = () => {
+  const router = useRouter();
   const [searchValue, onChangeSerachValue] = useInput("");
 
   return (
@@ -15,7 +17,10 @@ const SearchBar = () => {
         onChange={onChangeSerachValue}
         placeholder="#해쉬태그로 검색해 보세요"
       />
-      <button className={styles.button}>
+      <button
+        className={styles.button}
+        onClick={() => router.push(`/search/${searchValue}`)}
+      >
         <SearchIcon fill="#00ac77" />
       </button>
     </div>

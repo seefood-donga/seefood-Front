@@ -7,7 +7,9 @@ import EditIcon from "public/icons/edit.svg";
 import Link from "next/link";
 import ProfileImage from "components/custom/profile-image";
 import CustomLink from "components/custom/link";
+import useUserId from "hooks/use-user-id";
 const ProfilePage: NextPageWithLayout = () => {
+  const { userId } = useUserId();
   // 벡엔드에서 유저정보 가져옴
   const userData = dummyUser;
 
@@ -25,7 +27,7 @@ const ProfilePage: NextPageWithLayout = () => {
         </div>
       </section>
       <div className={styles["post-info"]}>
-        <CustomLink path={`/profile/${userData.id}`}>
+        <CustomLink path={`/profile/${userId}`}>
           <span>나의 전체 식단 : {userData.myUpload.length}</span>
         </CustomLink>
         <CustomLink path="/like">
@@ -36,7 +38,7 @@ const ProfilePage: NextPageWithLayout = () => {
         <header>식단 일기</header>
         <hr />
         <CustomCalendar />
-        <CustomLink path={`/profile/${userData.id}`}>
+        <CustomLink path={`/profile/${userId}`}>
           <button className={styles["my-feed"]}>전체 식단 보기</button>
         </CustomLink>
       </section>
