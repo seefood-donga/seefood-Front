@@ -1,5 +1,4 @@
 import PostCard from "components/post/post-card";
-import { singlePost } from "dummy";
 import useGetLike from "hooks/use-get-like";
 import React from "react";
 import { useInView } from "react-intersection-observer";

@@ -1,4 +1,3 @@
-import { dummyUser } from "dummy";
 import { useRouter } from "next/router";
 import React, { useCallback, useState } from "react";
 import styles from "styles/layout.module.scss";
@@ -9,14 +8,13 @@ import ProfilePopUp from "components/custom/pofile-popup";
 import useModal from "hooks/use-modal";
 import LogoutModal from "components/modal/logout-modal";
 import { getCookie } from "cookies-next";
+
 const Header = ({ title, noProfile }: LayoutHeader) => {
   const router = useRouter();
   const isLogin = getCookie("accessToken");
-  // 쿠키에 accessToken 있을 때만 react-query요청으로 유저데이터 받아옴
-  const userData = dummyUser;
   const [showPopup, setShowPopup] = useState(false);
   const { isOpen, onClose, setIsOpen } = useModal();
-  
+
   return (
     <header className={styles.header}>
       {title ? (
@@ -44,11 +42,7 @@ const Header = ({ title, noProfile }: LayoutHeader) => {
             <div>
               <ProfileImage size={36} />
               {showPopup && (
-                <ProfilePopUp
-                  userData={userData}
-                  setPopup={setShowPopup}
-                  setModal={setIsOpen}
-                />
+                <ProfilePopUp setPopup={setShowPopup} setModal={setIsOpen} />
               )}
               <LogoutModal show={isOpen} close={onClose} />
             </div>

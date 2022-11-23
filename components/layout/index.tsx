@@ -1,11 +1,10 @@
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode } from "react";
 import styles from "styles/layout.module.scss";
 import { LayoutHeader } from "types/common";
 import BackButton from "./back";
 import Header from "./header";
 import NavBar from "./navbar";
 import { getCookie } from "cookies-next";
-import Splash from "components/custom/splash";
 
 interface Props {
   children: ReactNode;
@@ -23,15 +22,6 @@ const AppLayout = ({
   hasBack = { has: true, color: "grey" },
 }: Props) => {
   const isLogin = getCookie("accessToken");
-  const [splash, setSplash] = useState(true);
-  useEffect(() => {
-    if (!splash && !isLogin) return;
-    setTimeout(() => {
-      setSplash(false);
-    }, 1500);
-  }, []);
-
-  if (!isLogin && splash) return <Splash />;
   return (
     <div className={styles.wrapper}>
       {layoutHeader && <Header {...layoutHeader} />}

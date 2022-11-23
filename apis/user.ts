@@ -31,5 +31,7 @@ export const userDetailAPI: userDetailType = ({ id }) => {
     params: {
       userId: id,
     },
-  }).then((res) => res.data);
+  }).then((res) => {
+    return res.data;
+  });
 };

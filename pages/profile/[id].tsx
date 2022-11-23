@@ -1,4 +1,3 @@
-import { dummyUser, dummyUserPost, todayMyCalorie } from "dummy";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { NextPageWithLayout } from "types/common";
