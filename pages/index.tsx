@@ -9,6 +9,7 @@ import { NextPageWithLayout } from "types/common";
 import useUserId from "hooks/use-user-id";
 import { useRouter } from "next/router";
 import useInput from "hooks/use-input";
+import Splash from "components/custom/splash";
 
 const MainPage: NextPageWithLayout = () => {
   const isLogin = getCookie("accessToken");
