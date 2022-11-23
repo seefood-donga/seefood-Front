@@ -2,20 +2,24 @@ import { useEffect } from "react";
 import { getBoardAPI } from "apis/board";
 import { useInfiniteQuery } from "react-query";
 import { BoardResponse } from "types/post";
+import { getCookie } from "cookies-next";
 
 interface Props {
   inView: boolean;
 }
 
 const useGetBoard = ({ inView }: Props) => {
+  const isLogin = getCookie("accessToken");
+  const key = isLogin ? "boardList" : "List";
   const { data, fetchNextPage, isLoading } = useInfiniteQuery<BoardResponse>(
-    ["boardList"],
+    [key],
     ({ pageParam = 0 }) => getBoardAPI(pageParam),
     {
       getNextPageParam: (lastPage, pages) => {
         if (!lastPage.isLast) return lastPage.nowPage + 1;
         return undefined;
       },
+      staleTime: 0,
       refetchOnMount: true,
     }
   );
