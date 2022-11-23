@@ -13,6 +13,9 @@ const useUserDetail = ({ id }: Props) => {
     () => userDetailAPI({ id }),
     {
       enabled: id >= 0,
+      onSuccess: (res) => {
+        localStorage.setItem("username", res.username as string);
+      },
     }
   );
   return { data, isLoading };

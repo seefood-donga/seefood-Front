@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SearchBar from "components/custom/search";
 import UploadButton from "components/custom/upload-button";
 import PostList from "components/post";
@@ -9,18 +9,19 @@ import { NextPageWithLayout } from "types/common";
 import useUserId from "hooks/use-user-id";
 import { useRouter } from "next/router";
 import useInput from "hooks/use-input";
-import Splash from "components/custom/splash";
+import useUserDetail from "hooks/use-user-detail";
 
 const MainPage: NextPageWithLayout = () => {
   const isLogin = getCookie("accessToken");
   const [ref, inView] = useInView();
   const router = useRouter();
   const { userId } = useUserId();
+  const { data } = useUserDetail({ id: userId });
   const [searchValue, onChangeSerachValue] = useInput("");
-  //const { data: userData } = useUserDetail({ id: userId });
   const { boardList, isLoading, readToLoad } = useGetBoard({
     inView,
   });
+
   return (
     <>
       <SearchBar
