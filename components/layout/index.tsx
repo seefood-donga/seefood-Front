@@ -25,7 +25,7 @@ const AppLayout = ({
   const isLogin = getCookie("accessToken");
   const [splash, setSplash] = useState(true);
   useEffect(() => {
-    if (!splash) return;
+    if (!splash && !isLogin) return;
     setTimeout(() => {
       setSplash(false);
     }, 1500);

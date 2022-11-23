@@ -13,7 +13,7 @@ const LogoutModal = ({ show, close }: { show: boolean; close: () => void }) => {
     localStorage.removeItem("userId");
     console.log("로그아웃 벡엔드에 요청");
     close();
-    router.replace("/login");
+    router.push("/login");
   }, []);
   return (
     <ModalLayout show={show} close={close}>

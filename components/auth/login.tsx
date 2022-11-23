@@ -24,6 +24,7 @@ const LoginForm = () => {
         const refreshToken = data.refreshToken;
         setCookie("accessToken", accessToken);
         setCookie("refreshToken", refreshToken);
+        queryClient.invalidateQueries(["boardList"]);
         router.replace("/");
       });
     },
