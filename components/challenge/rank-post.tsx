@@ -17,7 +17,6 @@ const RankPost = () => {
       <section className={styles.card}>
         <PostImage
           imageUrl={SinglePost.imageUrl}
-          calories={SinglePost.calories}
         />
         <div className={styles.calorie}>
             <span>총</span>
