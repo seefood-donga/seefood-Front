@@ -8,17 +8,17 @@ interface Props {
 }
 
 const useGetBoard = ({ inView }: Props) => {
-  const { data, fetchNextPage, isLoading } =
-    useInfiniteQuery<BoardResponse>(
-      ["boardList"],
-      ({ pageParam = 0 }) => getBoardAPI(pageParam),
-      {
-        getNextPageParam: (lastPage, pages) => {
-          if (!lastPage.isLast) return lastPage.nowPage + 1;
-          return undefined;
-        },
-      }
-    );
+  const { data, fetchNextPage, isLoading } = useInfiniteQuery<BoardResponse>(
+    ["boardList"],
+    ({ pageParam = 0 }) => getBoardAPI(pageParam),
+    {
+      getNextPageParam: (lastPage, pages) => {
+        if (!lastPage.isLast) return lastPage.nowPage + 1;
+        return undefined;
+      },
+      refetchOnMount: true,
+    }
+  );
   const boardList = data?.pages
     .flat()
     .map((v) => v.boardList)

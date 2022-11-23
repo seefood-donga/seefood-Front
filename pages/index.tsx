@@ -6,29 +6,31 @@ import { getCookie } from "cookies-next";
 import useGetBoard from "hooks/use-get-board";
 import { useInView } from "react-intersection-observer";
 import { NextPageWithLayout } from "types/common";
-import { dehydrate, QueryClient } from "react-query";
-import { getBoardAPI } from "apis/board";
-import useUserDetail from "hooks/use-user-detail";
 import useUserId from "hooks/use-user-id";
+import { useRouter } from "next/router";
+import useInput from "hooks/use-input";
 
 const MainPage: NextPageWithLayout = () => {
   const isLogin = getCookie("accessToken");
   const [ref, inView] = useInView();
-
+  const router = useRouter();
   const { userId } = useUserId();
-  const { data: userData } = useUserDetail({ id: userId });
+  const [searchValue, onChangeSerachValue] = useInput("");
+  //const { data: userData } = useUserDetail({ id: userId });
   const { boardList, isLoading, readToLoad } = useGetBoard({
     inView,
   });
   return (
     <>
-      <SearchBar />
+      <SearchBar
+        value={searchValue}
+        changeHandler={onChangeSerachValue}
+        searchHandler={() => router.push(`/search/${searchValue}`)}
+        placeHolder="#해쉬태그로 검색해 보세요"
+      />
       <div style={{ paddingTop: 60 }}>
-        <PostList />
-        <div
-          ref={readToLoad ? ref : undefined}
-          style={{ height: 10, backgroundColor: "yellow" }}
-        />
+        {boardList && <PostList data={boardList} />}
+        <div ref={readToLoad ? ref : undefined} style={{ height: 10 }} />
         {isLogin && <UploadButton />}
       </div>
     </>
@@ -40,15 +42,19 @@ MainPage.back = {
   has: false,
   color: "",
 };
+// const isLogin = getCookie("accessToken");
 
-export const getStaticProps = async () => {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchInfiniteQuery("boardList", () => getBoardAPI(0));
-  return {
-    props: {
-      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
-    },
-  };
-};
+// export const getStaticProps = async () => {
+//   if (!isLogin) {
+//     const queryClient = new QueryClient();
+//     await queryClient.prefetchInfiniteQuery("boardList", () => getBoardAPI(0));
+//     return {
+//       props: {
+//         dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+//       },
+//     };
+//   }
+//   return {};
+// };
 
 export default MainPage;

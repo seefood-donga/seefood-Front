@@ -6,10 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useCallback } from "react";
+import { useQueryClient } from "react-query";
 import styles from "styles/auth.module.scss";
 
 const LoginForm = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [email, onChangeEmail] = useInput("");
   const [password, onChangePassword] = useInput("");
   const onSubmit = useCallback(

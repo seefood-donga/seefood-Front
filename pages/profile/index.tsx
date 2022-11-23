@@ -8,6 +8,7 @@ import Link from "next/link";
 import ProfileImage from "components/custom/profile-image";
 import CustomLink from "components/custom/link";
 import useUserId from "hooks/use-user-id";
+
 const ProfilePage: NextPageWithLayout = () => {
   const { userId } = useUserId();
   // 벡엔드에서 유저정보 가져옴

@@ -21,13 +21,14 @@ type Calorie = {
 
 // 칼로리 주는 부분
 type PostResponse = {
+  boardId: number;
   createdAt: string;
   foodImageUrl: string;
   hashTag: Array<string>;
-  calories: Array<Calorie>;
-  userName: string;
+  username: string;
   isLike: boolean;
   category: "아침" | "점심" | "저녁";
+  kcal: number;
 };
 type BoardResponse = {
   boardList: Array<PostResponse>;
@@ -35,6 +36,14 @@ type BoardResponse = {
   isLast: boolean;
 };
 
-// 업로드 어떻게
-// user
-// 포스트 pagePram 0 부터 1씩 증가
+type Diet = {
+  category: string;
+  createdAt: string;
+  foodImageUrl: string;
+  kcal;
+};
+type DietResponse = {
+  DietList: Array<Diet>;
+  nowPage: number;
+  isLast: boolean;
+};
