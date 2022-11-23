@@ -6,18 +6,25 @@ import { LayoutHeader } from "types/common";
 import Image from "next/image";
 import ProfileImage from "components/custom/profile-image";
 import ProfilePopUp from "components/custom/pofile-popup";
-import useModal from 'hooks/use-modal';
-import LogoutModal from 'components/modal/logout-modal';
+import useModal from "hooks/use-modal";
+import LogoutModal from "components/modal/logout-modal";
+import { getCookie } from "cookies-next";
 const Header = ({ title, noProfile }: LayoutHeader) => {
   const router = useRouter();
+  const isLogin = getCookie("accessToken");
+  // 쿠키에 accessToken 있을 때만 react-query요청으로 유저데이터 받아옴
   const userData = dummyUser;
   const [showPopup, setShowPopup] = useState(false);
-  const {isOpen, onClose, setIsOpen} = useModal();
+  const { isOpen, onClose, setIsOpen } = useModal();
   
   return (
     <header className={styles.header}>
       {title ? (
-        <h2>{title}</h2>
+        title === "search" ? (
+          <h2>#{router.query.keyword} 검색 결과</h2>
+        ) : (
+          <h2>{title}</h2>
+        )
       ) : (
         <div className={styles.t1}>
           <Image
@@ -33,11 +40,15 @@ const Header = ({ title, noProfile }: LayoutHeader) => {
           onClick={() => setShowPopup((prev) => !prev)}
           className={styles.profile}
         >
-          {userData ? (
+          {isLogin ? (
             <div>
               <ProfileImage size={36} />
               {showPopup && (
-                <ProfilePopUp userData={userData} setPopup={setShowPopup} setModal={setIsOpen} />
+                <ProfilePopUp
+                  userData={userData}
+                  setPopup={setShowPopup}
+                  setModal={setIsOpen}
+                />
               )}
               <LogoutModal show={isOpen} close={onClose} />
             </div>

@@ -1,23 +1,22 @@
 import Image from "next/image";
-import React, { useCallback, useState } from "react";
+import React, { MouseEvent, useCallback, useState } from "react";
 import styles from "styles/post/post.module.scss";
 import { Calorie } from "types/post";
 
 interface Props {
   imageUrl: string;
-  calories: Calorie[];
 }
 
-const PostImage = ({ imageUrl, calories }: Props) => {
+const PostImage = ({ imageUrl }: Props) => {
   const [showCalorie, setShowCalorie] = useState(false);
-  const toggleShow = useCallback(() => {
+  const toggleShow = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setShowCalorie((prev) => !prev);
   }, []);
-
   return (
-    <div className={styles["image-wrapper"]} onClick={toggleShow}>
+    <div className={styles["image-wrapper"]}>
       <Image src={imageUrl} alt="food" layout="fill" />
-      {showCalorie && (
+      {/* {showCalorie && (
         <div className={styles.background}>
           {calories.map((v, i) => (
             <span
@@ -29,7 +28,7 @@ const PostImage = ({ imageUrl, calories }: Props) => {
             </span>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
