@@ -14,21 +14,16 @@ const PostImage = ({ imageUrl }: Props) => {
     setShowCalorie((prev) => !prev);
   }, []);
   return (
-    <div className={styles["image-wrapper"]}>
+    <div className={styles["image-wrapper"]} onClick={toggleShow}>
       <Image src={imageUrl} alt="food" layout="fill" />
-      {/* {showCalorie && (
+      {showCalorie && (
         <div className={styles.background}>
-          {calories.map((v, i) => (
-            <span
-              key={i}
-              style={{ top: `${v.position.y}px`, left: `${v.position.x}px` }}
-            >
-              {v.cal}
-              <div>cal</div>
-            </span>
-          ))}
+          <span style={{ top: `100px`, left: `150px` }}>
+            514
+            <div>cal</div>
+          </span>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
