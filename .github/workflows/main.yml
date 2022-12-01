@@ -41,6 +41,7 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:latest
 
+
   deploy:
     needs: build
     name: Deploy
